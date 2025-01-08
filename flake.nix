@@ -1,5 +1,5 @@
 {
-  description = "Example flake for Go";
+  description = "A flake for a PoC for globally capturing panics";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
@@ -18,10 +18,10 @@
       in
       {
         default = pkgs.buildGoModule {
-          pname = "example";
+          pname = "dontpanic";
           version = "0.0.1";
           src = ./.;
-          vendorHash = pkgs.lib.fakeHash;
+          vendorHash = null;
           proxyVendor = true;
         };
     });
